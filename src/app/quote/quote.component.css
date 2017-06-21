@@ -1,0 +1,36 @@
+h1 {
+    color: red;
+}
+
+/*#quote {
+    border: 1px solid black;
+    padding: 20px;
+}*/
+:host {
+    display: block;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+:host(.favorite){
+    border: 1px solid red;
+}
+/*^^ the above only works on the host element and not for classes on children elements under the component*/
+
+:host-context(.boring #very-boring) {
+    border: 1px solid #ccc;
+    color: #ccc;
+}
+
+:host-context(.boring #very-boring) /deep/ h1 {
+    color: #ccc;
+}
+/*:host-context(.boring #very-boring) />>>/ h1 {
+    color: #ccc;
+}*/
+/*deep or >>> applies this style to all the children and overrides*/
+
+/*app-quote {
+    background-color: teal;
+}*/
+/* ^^this doesn't work from this file. You have to use the app-quote selector in a parent or the global style sheet*/

@@ -1,3 +1,31 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+        <h1>
+          My Quotes
+        </h1>
+        <div class="interesting">
+          <app-quote 
+            (click)="isFavorite = !isFavorite" 
+            [ngClass]="{'favorite super-favorite' : isFavorite}" 
+            [ngStyle]="{'width.px': isFavorite ? 600 : 400}"></app-quote>
+        </div>
+        <button 
+          class="btn btn-primary"
+          (click)="onShowBoring(boringQuote)">Show Boring Quotes</button>
+        <div 
+          class="boring" 
+          #boringQuote
+          style="display: none"
+          >
+          <div id="very-boring">
+            <app-quote>
+            </app-quote>
+            <!--<app-author></app-author>-->
+          </div>
+        </div>
+    </div> 
+  </div>
+</div>
+
+
